@@ -194,45 +194,31 @@ button{font-family:inherit; cursor:pointer; border:none; background:none;}
 }
 .hero__bg{
   position:absolute; inset:0;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(46,204,113,.25), transparent 45%),
-    radial-gradient(circle at 85% 15%, rgba(58,183,216,.22), transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(255,106,26,.18), transparent 55%),
-    linear-gradient(180deg, #0b1210 0%, #0d1815 55%, #0b1210 100%);
-  background-size:200% 200%;
-  animation:heroShift 18s ease-in-out infinite alternate;
+  background:#0b1210;
 }
-@keyframes heroShift{
-  0%{background-position:0% 0%;}
-  100%{background-position:100% 100%;}
-}
-.hero__bg::before{
-  content:'';
+.hero__bg-img{
   position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size:48px 48px;
-  mask-image:radial-gradient(ellipse at center, black 0%, transparent 75%);
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:58% 45%;
+  animation:heroZoom 22s ease-in-out infinite alternate;
+}
+@keyframes heroZoom{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.08);}
+}
+.hero__bg-duotone{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(46,204,113,.35), transparent 42%),
+    radial-gradient(circle at 88% 10%, rgba(58,183,216,.3), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(255,106,26,.28), transparent 60%);
+  mix-blend-mode:color;
+  opacity:.75;
 }
 .hero__bg-overlay{
   position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(11,18,16,.2) 0%, rgba(11,18,16,.85) 100%);
-}
-.hero__scene{
-  position:absolute;
-  left:0; right:0; bottom:0;
-  height:clamp(220px, 34vh, 360px);
-  z-index:1;
-  overflow:hidden;
-  pointer-events:none;
-  -webkit-mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, black 45%);
-  mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.6) 20%, black 45%);
-}
-.hero__scene svg{
-  width:100%;
-  height:100%;
-  display:block;
+  background:linear-gradient(180deg, rgba(11,18,16,.35) 0%, rgba(11,18,16,.3) 40%, rgba(11,18,16,.92) 100%);
 }
 .hero__content{
   position:relative;
